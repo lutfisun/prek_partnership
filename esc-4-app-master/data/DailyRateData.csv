@@ -1,0 +1,225 @@
+Board_Number,Board_Name,TRS_Level,rate_class,daily_rate
+1,Panhandle,Regular,PSFT,22.66
+1,Panhandle,Regular,PSBT,17.52
+1,Panhandle,TRS2,PSFT,25.43
+1,Panhandle,TRS2,PSBT,20.48
+1,Panhandle,TRS3,PSFT,28.25
+1,Panhandle,TRS3,PSBT,22.75
+1,Panhandle,TRS4,PSFT,31.38
+1,Panhandle,TRS4,PSBT,25.28
+2,South Plains,Regular,PSFT,21.63
+2,South Plains,Regular,PSBT,17.62
+2,South Plains,TRS2,PSFT,22.89
+2,South Plains,TRS2,PSBT,19.15
+2,South Plains,TRS3,PSFT,25.43
+2,South Plains,TRS3,PSBT,21.27
+2,South Plains,TRS4,PSFT,28.25
+2,South Plains,TRS4,PSBT,23.63
+3,North Texas,Regular,PSFT,19.77
+3,North Texas,Regular,PSBT,15.12
+3,North Texas,TRS2,PSFT,22.62
+3,North Texas,TRS2,PSBT,17.99
+3,North Texas,TRS3,PSFT,25.13
+3,North Texas,TRS3,PSBT,19.99
+3,North Texas,TRS4,PSFT,27.92
+3,North Texas,TRS4,PSBT,22.21
+4,North Central Texas,Regular,PSFT,27.4
+4,North Central Texas,Regular,PSBT,21.42
+4,North Central Texas,TRS2,PSFT,30.76
+4,North Central Texas,TRS2,PSBT,24.77
+4,North Central Texas,TRS3,PSFT,34.17
+4,North Central Texas,TRS3,PSBT,27.51
+4,North Central Texas,TRS4,PSFT,37.96
+4,North Central Texas,TRS4,PSBT,30.57
+5,Tarrant County,Regular,PSFT,28.56
+5,Tarrant County,Regular,PSBT,21.93
+5,Tarrant County,TRS2,PSFT,32.32
+5,Tarrant County,TRS2,PSBT,25.89
+5,Tarrant County,TRS3,PSFT,35.91
+5,Tarrant County,TRS3,PSBT,28.76
+5,Tarrant County,TRS4,PSFT,39.9
+5,Tarrant County,TRS4,PSBT,31.96
+6,Greater Dallas,Regular,PSFT,26.32
+6,Greater Dallas,Regular,PSBT,19.43
+6,Greater Dallas,TRS2,PSFT,31.07
+6,Greater Dallas,TRS2,PSBT,24.23
+6,Greater Dallas,TRS3,PSFT,34.52
+6,Greater Dallas,TRS3,PSBT,26.92
+6,Greater Dallas,TRS4,PSFT,38.35
+6,Greater Dallas,TRS4,PSBT,29.91
+7,Northeast Texas,Regular,PSFT,19.26
+7,Northeast Texas,Regular,PSBT,14.98
+7,Northeast Texas,TRS2,PSFT,21.47
+7,Northeast Texas,TRS2,PSBT,17.36
+7,Northeast Texas,TRS3,PSFT,23.85
+7,Northeast Texas,TRS3,PSBT,19.29
+7,Northeast Texas,TRS4,PSFT,26.5
+7,Northeast Texas,TRS4,PSBT,21.43
+8,East Texas,Regular,PSFT,20.85
+8,East Texas,Regular,PSBT,16.21
+8,East Texas,TRS2,PSFT,21.9
+8,East Texas,TRS2,PSBT,17.85
+8,East Texas,TRS3,PSFT,24.2
+8,East Texas,TRS3,PSBT,19.8
+8,East Texas,TRS4,PSFT,26.88
+8,East Texas,TRS4,PSBT,22
+9,West Central Texas,Regular,PSFT,19.52
+9,West Central Texas,Regular,PSBT,13.96
+9,West Central Texas,TRS2,PSFT,23.85
+9,West Central Texas,TRS2,PSBT,18.22
+9,West Central Texas,TRS3,PSFT,26.49
+9,West Central Texas,TRS3,PSBT,20.23
+9,West Central Texas,TRS4,PSFT,29.43
+9,West Central Texas,TRS4,PSBT,22.47
+10,Borderplex,Regular,PSFT,19.84
+10,Borderplex,Regular,PSBT,15.38
+10,Borderplex,TRS2,PSFT,22.23
+10,Borderplex,TRS2,PSBT,17.93
+10,Borderplex,TRS3,PSFT,24.69
+10,Borderplex,TRS3,PSBT,19.91
+10,Borderplex,TRS4,PSFT,27.43
+10,Borderplex,TRS4,PSBT,22.12
+11,Permian Basin,Regular,PSFT,22.2
+11,Permian Basin,Regular,PSBT,16.45
+11,Permian Basin,TRS2,PSFT,26.38
+11,Permian Basin,TRS2,PSBT,20.49
+11,Permian Basin,TRS3,PSFT,29.31
+11,Permian Basin,TRS3,PSBT,22.76
+11,Permian Basin,TRS4,PSFT,32.56
+11,Permian Basin,TRS4,PSBT,25.29
+12,Concho Valley,Regular,PSFT,19.61
+12,Concho Valley,Regular,PSBT,16.88
+12,Concho Valley,TRS2,PSFT,20.6
+12,Concho Valley,TRS2,PSBT,17.73
+12,Concho Valley,TRS3,PSFT,22.53
+12,Concho Valley,TRS3,PSBT,18.93
+12,Concho Valley,TRS4,PSFT,25.03
+12,Concho Valley,TRS4,PSBT,21.03
+13,Heart of Texas,Regular,PSFT,19.22
+13,Heart of Texas,Regular,PSBT,15.11
+13,Heart of Texas,TRS2,PSFT,21.17
+13,Heart of Texas,TRS2,PSBT,17.26
+13,Heart of Texas,TRS3,PSFT,23.52
+13,Heart of Texas,TRS3,PSBT,19.17
+13,Heart of Texas,TRS4,PSFT,26.13
+13,Heart of Texas,TRS4,PSBT,21.3
+14,Capital Area,Regular,PSFT,31.68
+14,Capital Area,Regular,PSBT,24.59
+14,Capital Area,TRS2,PSFT,35.4
+14,Capital Area,TRS2,PSBT,28.6
+14,Capital Area,TRS3,PSFT,39.33
+14,Capital Area,TRS3,PSBT,31.77
+14,Capital Area,TRS4,PSFT,43.7
+14,Capital Area,TRS4,PSBT,35.29
+15,Rural Capital Area,Regular,PSFT,28.13
+15,Rural Capital Area,Regular,PSBT,21.86
+15,Rural Capital Area,TRS2,PSFT,31.41
+15,Rural Capital Area,TRS2,PSBT,25.38
+15,Rural Capital Area,TRS3,PSFT,34.9
+15,Rural Capital Area,TRS3,PSBT,28.2
+15,Rural Capital Area,TRS4,PSFT,38.77
+15,Rural Capital Area,TRS4,PSBT,31.33
+16,Brazos Valley,Regular,PSFT,23.95
+16,Brazos Valley,Regular,PSBT,18.26
+16,Brazos Valley,TRS2,PSFT,27.43
+16,Brazos Valley,TRS2,PSBT,21.8
+16,Brazos Valley,TRS3,PSFT,30.47
+16,Brazos Valley,TRS3,PSBT,24.22
+16,Brazos Valley,TRS4,PSFT,33.85
+16,Brazos Valley,TRS4,PSBT,26.91
+17,Deep East Texas,Regular,PSFT,18.88
+17,Deep East Texas,Regular,PSBT,16.98
+17,Deep East Texas,TRS2,PSFT,21.84
+17,Deep East Texas,TRS2,PSBT,18.14
+17,Deep East Texas,TRS3,PSFT,24.26
+17,Deep East Texas,TRS3,PSBT,19.17
+17,Deep East Texas,TRS4,PSFT,26.95
+17,Deep East Texas,TRS4,PSBT,21.3
+18,Southeast Texas,Regular,PSFT,21.22
+18,Southeast Texas,Regular,PSBT,17.57
+18,Southeast Texas,TRS2,PSFT,23.03
+18,Southeast Texas,TRS2,PSBT,18.96
+18,Southeast Texas,TRS3,PSFT,25.58
+18,Southeast Texas,TRS3,PSBT,21.06
+18,Southeast Texas,TRS4,PSFT,28.42
+18,Southeast Texas,TRS4,PSBT,23.39
+19,Golden Crescent,Regular,PSFT,20.88
+19,Golden Crescent,Regular,PSBT,16.08
+19,Golden Crescent,TRS2,PSFT,23.55
+19,Golden Crescent,TRS2,PSBT,18.91
+19,Golden Crescent,TRS3,PSFT,26.16
+19,Golden Crescent,TRS3,PSBT,21
+19,Golden Crescent,TRS4,PSFT,29.06
+19,Golden Crescent,TRS4,PSBT,23.33
+20,Alamo,Regular,PSFT,26.08
+20,Alamo,Regular,PSBT,20.87
+20,Alamo,TRS2,PSFT,28.17
+20,Alamo,TRS2,PSBT,23.25
+20,Alamo,TRS3,PSFT,31.29
+20,Alamo,TRS3,PSBT,25.83
+20,Alamo,TRS4,PSFT,34.76
+20,Alamo,TRS4,PSBT,28.69
+21,South Texas,Regular,PSFT,21.34
+21,South Texas,Regular,PSBT,16.96
+21,South Texas,TRS2,PSFT,22.41
+21,South Texas,TRS2,PSBT,17.99
+21,South Texas,TRS3,PSFT,24.48
+21,South Texas,TRS3,PSBT,19.92
+21,South Texas,TRS4,PSFT,27.19
+21,South Texas,TRS4,PSBT,22.13
+22,Coastal Bend,Regular,PSFT,22.84
+22,Coastal Bend,Regular,PSBT,17.6
+22,Coastal Bend,TRS2,PSFT,25.75
+22,Coastal Bend,TRS2,PSBT,20.68
+22,Coastal Bend,TRS3,PSFT,28.61
+22,Coastal Bend,TRS3,PSBT,22.98
+22,Coastal Bend,TRS4,PSFT,31.78
+22,Coastal Bend,TRS4,PSBT,25.52
+23,Lower Rio Grande Valley,Regular,PSFT,19.95
+23,Lower Rio Grande Valley,Regular,PSBT,15.13
+23,Lower Rio Grande Valley,TRS2,PSFT,22.89
+23,Lower Rio Grande Valley,TRS2,PSBT,18.18
+23,Lower Rio Grande Valley,TRS3,PSFT,25.43
+23,Lower Rio Grande Valley,TRS3,PSBT,20.2
+23,Lower Rio Grande Valley,TRS4,PSFT,28.25
+23,Lower Rio Grande Valley,TRS4,PSBT,22.44
+24,Cameron,Regular,PSFT,20.2
+24,Cameron,Regular,PSBT,15.5
+24,Cameron,TRS2,PSFT,22.88
+24,Cameron,TRS2,PSBT,18.32
+24,Cameron,TRS3,PSFT,25.42
+24,Cameron,TRS3,PSBT,20.35
+24,Cameron,TRS4,PSFT,28.24
+24,Cameron,TRS4,PSBT,22.61
+25,Texoma,Regular,PSFT,23.06
+25,Texoma,Regular,PSBT,21.35
+25,Texoma,TRS2,PSFT,24.22
+25,Texoma,TRS2,PSBT,22.43
+25,Texoma,TRS3,PSFT,26.51
+25,Texoma,TRS3,PSBT,23.13
+25,Texoma,TRS4,PSFT,29.45
+25,Texoma,TRS4,PSBT,23.97
+26,Central Texas,Regular,PSFT,20.43
+26,Central Texas,Regular,PSBT,16.09
+26,Central Texas,TRS2,PSFT,22.47
+26,Central Texas,TRS2,PSBT,18.34
+26,Central Texas,TRS3,PSFT,24.96
+26,Central Texas,TRS3,PSBT,20.37
+26,Central Texas,TRS4,PSFT,27.73
+26,Central Texas,TRS4,PSBT,22.63
+27,Middle Rio Grande,Regular,PSFT,18.27
+27,Middle Rio Grande,Regular,PSBT,14.86
+27,Middle Rio Grande,TRS2,PSFT,19.36
+27,Middle Rio Grande,TRS2,PSBT,16.18
+27,Middle Rio Grande,TRS3,PSFT,21.51
+27,Middle Rio Grande,TRS3,PSBT,17.98
+27,Middle Rio Grande,TRS4,PSFT,23.89
+27,Middle Rio Grande,TRS4,PSBT,19.97
+28,Gulf Coast,Regular,PSFT,26.37
+28,Gulf Coast,Regular,PSBT,20.05
+28,Gulf Coast,TRS2,PSFT,30.17
+28,Gulf Coast,TRS2,PSBT,24.01
+28,Gulf Coast,TRS3,PSFT,33.52
+28,Gulf Coast,TRS3,PSBT,26.67
+28,Gulf Coast,TRS4,PSFT,37.24
+28,Gulf Coast,TRS4,PSBT,29.63

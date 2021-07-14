@@ -1,0 +1,13 @@
+name: Funding_Tool
+title: Funding_Tool
+username:
+account: mrworthington
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 676784
+bundleId: 2604798
+url: https://mrworthington.shinyapps.io/Funding_Tool/
+when: 1574278301.44072
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Butterfly Garden CDC.pdf|plot.pdf|plot.png|raw_data/.PreK spreadsheet 1.27.19.xlsx.icloud|tests/mytest.R

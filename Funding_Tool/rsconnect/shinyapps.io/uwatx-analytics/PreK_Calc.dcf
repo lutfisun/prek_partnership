@@ -1,0 +1,13 @@
+name: PreK_Calc
+title: PreK_Calc
+username:
+account: uwatx-analytics
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 750284
+bundleId: 1907099
+url: https://uwatx.shinyapps.io/PreK_Calc/
+when: 1551383813.16182
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Butterfly Garden CDC.pdf|plot.pdf|plot.png|raw_data/~$PreK spreadsheet 1.27.19.xlsx|raw_data/PreK spreadsheet 1.27.19.xlsx|tests/mytest.R

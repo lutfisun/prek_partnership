@@ -1,0 +1,11 @@
+**Purpose of This Tool:** This tool was designed to help child care centers understand their costs and revenues for 3- and/or 4-year-old classrooms when partnering with a school district or charter school to provide public school pre-K.
+
+**Background:** Child care/pre-K partnerships are a priority of multiple state agencies, local leaders, and early childhood stakeholders across Texas. School districts can provide public school pre-K for eligible 3- and 4-year-olds at a private child care center, rather than on an elementary campus. Children are dually enrolled in public school pre-K and child care—the public school pre-K covers educational instruction while the subsidy or tuition covers wrap-around care (before and after school), all in the same location under the same teacher.
+
+**Resources:** For an excel version of this calculator and a webinar explaining how to use the calculator, visit https://twc.texas.gov/programs/twc-prekindergarten-partnerships
+
+**Acknowledgements:** United Way for Greater Austin established the original version of this helpful calculator made specifically for the Austin-region, and they have graciously agreed to broaden it for statewide use. Matt Worthington was the original developer of the Austin calculator and created the code used as the foundation for this statewide calculator.
+
+The W.K. Kellogg Foundation provided generous funding to expand the calculator statewide through a partnership with the Region 4 Education Service Center, developers at January Advisors, and the Texas Workforce Commission.
+
+**Disclaimer:** Calculations made using this tool are not guaranteed by the Texas Workforce Commission or any of its affiliates. Calculations are estimates based on information entered by the user. The child care subsidy reimbursement rates used in this calculator can be found in Attachment 1 for WD Letter 23-19: https://twc.texas.gov/files/policy_letters/attachments/wd-23-19att1-twc.pdf. Blended rates for 4-year-olds covered by public pre-k and subsidy are calculated based on the typical school year (205 days). Your actual reimbursement rate might vary. For more information on blended rates, see WD Letter 02-20: https://twc.texas.gov/files/policy_letters/02-20-twc.pdf.

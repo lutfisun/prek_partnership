@@ -1,0 +1,11 @@
+app <- ShinyDriver$new("../")
+app$snapshotInit("mytest")
+
+app$setInputs(leadhours1 = 40)
+app$setInputs(subrate1 = 24)
+app$setInputs(subhours1 = 420)
+app$setInputs(supplies1 = 5500)
+app$setInputs(sumsubhours1 = 0)
+app$setInputs(overhead1 = 40000)
+app$setInputs(fringerate = 42)
+app$snapshotDownload("downloadggplot")

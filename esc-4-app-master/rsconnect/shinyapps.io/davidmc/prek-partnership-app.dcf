@@ -1,0 +1,12 @@
+name: prek-partnership-app
+title: prek-partnership-app
+username:
+account: davidmc
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1914885
+bundleId: 3735386
+url: https://davidmc.shinyapps.io/prek-partnership-app/
+when: 1602604192.0892
+asMultiple: FALSE
+asStatic: FALSE
