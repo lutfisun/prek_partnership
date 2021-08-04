@@ -1,0 +1,13 @@
+name: funding_tool_2021
+title: funding_tool_2021
+username:
+account: lutfisun
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4456276
+bundleId: 4887898
+url: https://lutfisun.shinyapps.io/funding_tool_2021/
+when: 1628092158.22072
+lastSyncTime: 1628092158.22074
+asMultiple: FALSE
+asStatic: FALSE
