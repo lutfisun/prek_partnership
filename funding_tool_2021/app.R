@@ -1,6 +1,10 @@
 #
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
+# Title: Budget Calculator for Pre-K Centers
+# Author: Matt Worthington and Lutfi Sun
+# Date: July 21, 2021
+#
+# Acknowledgment: This calculator is based on code provided by Matt Worthington and
+# its successor https://davidmc.shinyapps.io/prek-partnership-app/
 #
 
 ###--- PREP WORKSPACE -------------------------------------------------------------------
@@ -12,21 +16,20 @@ library(ggthemes)
 library(shinyBS)
 
 ## Load Data
-df <- read.csv("data/DailyRateData.csv") 
 
 #--- UI---------------------------------------------------------------------------------
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-    tags$head(HTML("<title>Pre-K Partnership Calculator </title>")),
+    tags$head(HTML("<title>Pre-K Partnership Budget Calculator </title>")),
     navbarPage(
         # Without company logo
-        title = tags$a(href='http://www.twc.texas.gov',
-                       tags$img(src='TWC_logo_white.png', height = "75", width = "75"), color="#fff"),
+        title = tags$a(href='https://www.unitedwayaustin.org/',
+                       tags$img(src='UWA-Logo.png', height = "75", width = "275"), color="#fff"),
         
         # Application title
         tabPanel("Partnerships Overview",
                  div(class = "overview",
-                     h1(" How do Pre-K Partnerships Work?")),
+                     h1("How do Pre-K Partnerships Work?")),
                  hr(),
                  fluidRow(
                      div(class = "explainers",
@@ -41,7 +44,7 @@ ui <- fluidPage(
         tabPanel(
             title = "Calculator Tool",
             div(class = "overview-2",
-                h1(" How Your Center Would Work")),
+                h1("How Your Center Would Work")),
             id = "nav",
             theme = "navbar-dark bg-dark",
             responsive = TRUE,
@@ -49,7 +52,9 @@ ui <- fluidPage(
             tags$head(
                 # Include our custom CSS
                 includeCSS("www/styles.css"),
-                tags$link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.1.0/css/all.css", integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt", crossorigin="anonymous")
+                tags$link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.1.0/css/all.css", 
+                          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt", 
+                          crossorigin="anonymous")
             ),
             br(),
             br(),
@@ -76,23 +81,6 @@ ui <- fluidPage(
                               label = h4("Name of Center"), 
                               placeholder = "Enter A Name..."),
                     
-                    # **Workforce board selector ---------------
-                    selectInput(inputId = "Board_Selector", 
-                                label = "Workforce Board name",
-                                choices = sort(unique(df$Board_Name)),
-                                multiple = FALSE,
-                                selected = "Gulf Coast"),
-                    
-                    # **TRS level selector ----------------------
-                    selectInput(inputId = "TRS_Selector", 
-                                label = "TRS Level",
-                                choices = c("Licensed only" = "Regular",
-                                            "TRS2" = "TRS2",
-                                            "TRS3" = "TRS3",
-                                            "TRS4" = "TRS4"),
-                                multiple = FALSE,
-                                selected = "None"),
-                    
                     tabsetPanel(
                         
                         # TAB 1 - REVENUES TAB ------------------------------------------------------------
@@ -101,56 +89,68 @@ ui <- fluidPage(
                                  h4("Classroom Enrollment Information"),
                                  
                                  ## Classroom age
-                                 selectInput(inputId = "class_age",
-                                             label = "What age group is in the classroom?",
-                                             choices = c("3yo",
-                                                         "4yo",
-                                                         "both"),
-                                             multiple = F,
-                                             selected = "3yo"),
                                  
                                  ## Student composition by age & status 
                                  h4("Payment Sources"),
                                  p("Enter the number of children in each category:"),
                                  
-                                 # questions to appear for 3-yo class
-                                 conditionalPanel("input.class_age == '3yo'",
-                                                  # subsidy only, 3yo
-                                                  numericInput("subsidy_only3",
-                                                               "Number of subsidy-only 3-year-old children:",
-                                                               value = 0),
-                                                  # preK subsidy eligible, 3yo
-                                                  numericInput("prek_subsidy3",
-                                                               "Number of pre-K + subsidy eligible 3-year-old children:",
-                                                               value = 0)),
-                                 # questions to appear for 4-yo class
-                                 conditionalPanel("input.class_age == '4yo'",
-                                                  # subsidy only, 4yo 
-                                                  numericInput("subsidy_only4",
-                                                               "Number of subsidy-only 4-year-old children:",
-                                                               value = 0),
-                                                  # preK subsidy eligible, 4yo
-                                                  numericInput("prek_subsidy4",
-                                                               "Number of pre-K + subsidy eligible 4-year-old children:",
-                                                               value = 0)),
                                  # questions to appear for blended 3- & 4-yo class
-                                 conditionalPanel("input.class_age == 'both'",
-                                                  # subsidy only, 3yo 
-                                                  numericInput("subsidy_only3both",
-                                                               "Number of subsidy-only 3-year-old children:",
-                                                               value = 0),
-                                                  # preK subsidy eligible, 3yo
-                                                  numericInput("prek_subsidy3both",
-                                                               "Number of pre-K + subsidy eligible 3-year-old children:",
-                                                               value = 0),
-                                                  # subsidy only, 4yo 
-                                                  numericInput("subsidy_only4both",
-                                                               "Number of subsidy-only 4-year-old children:",
-                                                               value = 0),
-                                                  # preK subsidy eligible, 4yo 
-                                                  numericInput("prek_subsidy4both",
-                                                               "Number of pre-K + subsidy eligible 4-year-old children:",
-                                                               value = 0)),
+                                                 
+                                 ## subsidy only, 3yo 
+                                 numericInput("subsidy_only3",
+                                              "Number of subsidy-only 3-year-old children:",
+                                              value = 0),
+                                                  
+                                 sliderInput("subsidyrate3",
+                                             "Daily subsidy rate per 3-year-old:",
+                                             min = 30,
+                                             max = 50,
+                                             step = 0.01,
+                                             pre="$",
+                                             post="/day",
+                                             value = 43.70),
+ 
+                                 ## Pre-K pass, 3yo 
+                                 numericInput("prek3",
+                                              "Number of 3-year-olds with Pre-K pass:",
+                                              value = 0),
+                                 
+                                 sliderInput("prek3_rate",
+                                             "3-year-old Pre-K pass rate from district:",
+                                             min = 10,
+                                             max = 30,
+                                             step = 0.01,
+                                             pre="$",
+                                             post="/day",
+                                             value = 20),
+                                 
+                                 ## subsidy only, 4yo 
+                                 numericInput("subsidy_only4",
+                                              "Number of subsidy-only 4-year-old children:",
+                                              value = 0),
+                                                 
+                                 sliderInput("subsidyrate4",
+                                             "Daily subsidy rate per 4-year-old:",
+                                             min = 30,
+                                             max = 50,
+                                             step = 0.01,
+                                             pre="$",
+                                             post="/day",
+                                             value = 35.29),
+                                                 
+                                 ## Pre-K pass, 4yo 
+                                 numericInput("prek4",
+                                              "Number of 4-year-olds with Pre-K pass:",
+                                              value = 0),
+                                 
+                                 sliderInput("prek4_rate",
+                                             "4-year-old Pre-K pass rate from district:",
+                                             min = 10,
+                                             max = 30,
+                                             step = 0.01,
+                                             pre="$",
+                                             post="/day",
+                                             value = 20),
                                  
                                  # questions to appear regardless of classroom age
                                  # pre-K only (don't pay tuition)
@@ -166,30 +166,29 @@ ui <- fluidPage(
                                  sliderInput("tuitionrate",
                                              "Monthly tuition rate per child:",
                                              min = 400,
-                                             max = 1300,
+                                             max = 1500,
                                              pre="$",
                                              post="/mo",
                                              value = 1100),
                                  
                                  ## Pass-through amount slider
-                                 sliderInput(inputId = "PassThrough_slider",
-                                             label = "Pre-K pass-through amount per year",
+                                 sliderInput(inputId = "extra_slider",
+                                             label = "Extra funds including full day supplements per year",
                                              min = 0,
                                              max = 30000,
                                              pre="$",
                                              value = 15000),
                                  
                                  ## Hover-over definition labels for each field
-                                 bsTooltip("PassThrough_slider", "Any amount of funding that your public school partner is passing through to you. It may be per child, per teacher, per classroom, per month, or per year. Make the calculation on your own for what you would receive for the entire year and enter it here",
+                                 bsTooltip("extra_slider", "Any amount of funding that your public school partner is passing through to you. It may be per child, per teacher, per classroom, per month, or per year. Make the calculation on your own for what you would receive for the entire year and enter it here",
                                            "top"),
+                                 
                                  bsTooltip("subsidy_only3", "Those who are in the child care subsidy program, but NOT eligible for public school pre-K"),
+                                 bsTooltip("prek3", "Those who are in the child care subsidy program AND are eligible for public school pre-K"),
+                                 
                                  bsTooltip("subsidy_only4", "Those who are in the child care subsidy program, but NOT eligible for public school pre-K"),
-                                 bsTooltip("prek_subsidy3", "Those who are in the child care subsidy program AND are eligible for public school pre-K"),
-                                 bsTooltip("prek_subsidy4", "Those who are in the child care subsidy program AND are eligible for public school pre-K"),
-                                 bsTooltip("subsidy_only3both", "Those who are in the child care subsidy program, but NOT eligible for public school pre-K"),
-                                 bsTooltip("subsidy_only4both", "Those who are in the child care subsidy program, but NOT eligible for public school pre-K"),
-                                 bsTooltip("prek_subsidy3both", "Those who are in the child care subsidy program AND are eligible for public school pre-K"),
-                                 bsTooltip("prek_subsidy4both", "Those who are in the child care subsidy program AND are eligible for public school pre-K"),
+                                 bsTooltip("prek4", "Those who are in the child care subsidy program AND are eligible for public school pre-K"),
+                                 
                                  bsTooltip("prekonly", "Those children only eligible for public school pre-K; you are not receiving other payments for their care"),
                                  bsTooltip("enrollfullpay", "Those who are not in the subsidy program and not eligible for pre-K; you only receive payment from tuition")
                         ),
@@ -403,8 +402,8 @@ ui <- fluidPage(
                     ## Hover-over definition labels for each field
                     bsTooltip("sumsubrate1", "If the lead pre-K teacher is off in the summer and you need a replacement lead teacher"),
                     bsTooltip("supplies1", "Estimate your yearly cost for classroom supplies"),
-                    bsTooltip("overhead1", "This includes items that must be paid regardless of how your business is doing (rent, utilities, maintenance, accounting, taxes, insurance, administrative staff, etc.). Estimate your overhead costs for this pre-K classroom only"),
-                    bsTooltip("fringerate", "Add together the annual cost of all employee benefits and payroll taxes paid, and divide by the annual wages paid. This gives you a percentage you can input here", "top")
+                    bsTooltip("overhead1", "This includes items that must be paid regardless of how your business is doing (rent, utilities, maintenance, accounting, taxes, insurance, administrative staff, etc.). Estimate your overhead costs for this pre-K classroom only")
+                    #bsTooltip("fringerate", "Add together the annual cost of all employee benefits and payroll taxes paid, and divide by the annual wages paid. This gives you a percentage you can input here")
                 ),
                 
                 ## Display plot
@@ -414,51 +413,36 @@ ui <- fluidPage(
                     hr(),
                     plotOutput("mod1Plot", width = "100%", height = "800px")
                 )
-            )
-        )))
+        )
+    )))
+        
 
 ###--- SERVER---------------------------------------------------------------------------------
 server <- function(input, output, session) {
     
-    # Filter df reactively by user inputs 
-    filtered_df <- reactive({
-        filter(df, Board_Name == input$Board_Selector & # workforce board
-                   TRS_Level == input$TRS_Selector)     # trs level
-    })
-    
-    # Observe functions to check work
-    observe(
-        print(filtered_df())
-    )
-    
     # Reset hidden fields (i.e., from conditionals) to 0
-    observeEvent(input$class_age, {
-        updateSelectInput(session, "subsidy_only3", selected = 0)
-        updateSelectInput(session, "subsidy_only4", selected = 0)
-        updateSelectInput(session, "prek_subsidy3", selected = 0)
-        updateSelectInput(session, "prek_subsidy4", selected = 0)
-        updateSelectInput(session, "subsidy_only3both", selected = 0)
-        updateSelectInput(session, "subsidy_only4both", selected = 0)
-        updateSelectInput(session, "prek_subsidy3both", selected = 0)
-        updateSelectInput(session, "prek_subsidy4both", selected = 0)
-    })
     
     ###------ FUNCTION: CALCULATE REV/EX, MAKE PLOT -------###
     
     output$mod1Plot <- renderPlot({
         
         # Make a local variable that is all students
-        enrollees <- input$subsidy_only3 + input$prek_subsidy3 + 
-            input$subsidy_only4 + input$prek_subsidy4 +
-            input$subsidy_only3both + input$prek_subsidy3both + 
-            input$subsidy_only4both + input$prek_subsidy4both +
-            input$prekonly + input$enrollfullpay
+        enrollees <-    input$subsidy_only3 + input$prek3 +
+                        input$subsidy_only4 + input$prek4 +
+                        input$prekonly + input$enrollfullpay
         
         # Local variables to group "both" vs single age group classes
-        subsidyonly3 <- input$subsidy_only3 + input$subsidy_only3both
-        subsidyprek3 <- input$prek_subsidy3 + input$prek_subsidy3both
-        subsidyonly4 <- input$subsidy_only4 + input$subsidy_only4both
-        subsidyprek4 <- input$prek_subsidy4 + input$prek_subsidy4both
+        subsidyonly3    <- input$subsidy_only3
+        prek3           <- input$prek3
+        
+        subsidyrate3    <- input$subsidyrate3
+        prek3_rate      <- input$prek3_rate
+        
+        subsidyonly4    <- input$subsidy_only4
+        prek4           <- input$prek4
+        
+        subsidyrate4    <- input$subsidyrate4
+        prek4_rate      <- input$prek4_rate
         
         # make a local variable- if districtpayteacher is selected, will remove teacher expense from formula
         districtpay <- ifelse(input$districtpayteacher == TRUE, 0, 1)
@@ -486,15 +470,13 @@ server <- function(input, output, session) {
                 # REVENUE - student tuition (full-pay and subsidy, subsidy pay dependent on student age/enrollment status)
                 Revenue =
                     c(
-                        input$PassThrough_slider +                            # Pass Through Amount
+                        input$extra_slider +                            # Pass Through Amount
                             (input$enrollfullpay * input$tuitionrate * 12) +  # Full-Pay Student Revenue: NumberFullPayStudents*MonthlyTuition*12
-                            (subsidyonly3 * filtered_df()[2,5] * 262) +       # Subsidy only 3yo: NumberSubsidyOnly * PSFT daily rate * 262 days/yr
-                            (subsidyprek3 * filtered_df()[2,5] * 262) +       # Prek subsidy eligible 3yo: NumberPrekSubsidyEligible * PSFT daily rate * 262 days/yr
-                            (subsidyonly4 * filtered_df()[2,5] * 262) +       # Subsidy only 4yo: NumberSubsidyOnly * PSFT daily rate * 262 days/yr
-                            (subsidyprek4 * filtered_df()[1,5] * 205) +       # Prek subsidy eligible 4yo SCHOOL YEAR: NumberPrekSubsidyEligible * PSBT daily rate * 205 school year days
-                            (subsidyprek4 * filtered_df()[2,5] * 57)          # Prek subsidy eligible 4yo SUMMER: NumberPrekSubsidyEligible * PSFT daily rate * 57 summer days
+                            (subsidyonly3 * subsidyrate3 * 262) +             # Subsidy only 3yo: NumberSubsidyOnly * PSFT daily rate * 262 days/yr
+                            (subsidyonly4 * subsidyrate4 * 262)               # Subsidy only 4yo: NumberSubsidyOnly * PSFT daily rate * 262 days/yr
                     )
             )
+            
             
             mod1 <- mod1 %>% gather(variable, value, 1:2)
             
@@ -516,19 +498,16 @@ server <- function(input, output, session) {
                                       "\n",
                                       "GENERAL INFO:\n",
                                       "Name of Center: ",input$centername, "\n",
-                                      "Workforce Board: ",input$Board_Selector, "\n",
-                                      "TRS Level: ",input$TRS_Selector, "\n",
                                       "\n",
                                       "ANNUAL REVENUES:\n",
-                                      "Classroom age group: ",input$class_age, "\n",
                                       "Total Number of Children Enrolled: " , enrollees , "\n",
-                                      "Subsidy-only 3-yos enrolled: ",subsidyonly3, " @ $",filtered_df()[2,5],"/child/day\n",
-                                      "Subsidy-only 4-yos enrolled: ",subsidyonly4, " @ $",filtered_df()[2,5],"/child/day\n",
-                                      "Pre-K + subsidy eligible 3-yos enrolled: ",subsidyprek3, " @ $",filtered_df()[2,5],"/child/day\n",
-                                      "Pre-K + subsidy eligible 4-yos enrolled: ",subsidyprek4, " @ $",filtered_df()[1,5],"/child/day (school year), $",filtered_df()[2,5],"/child/day (summer)\n",
+                                      "Subsidy-only 3-yos enrolled: ",subsidyonly3, " @ $",subsidyrate3,"/child/day\n",
+                                      "Subsidy-only 4-yos enrolled: ",subsidyonly4, " @ $",subsidyrate4,"/child/day\n",
+                                      "Pre-K + subsidy eligible 3-yos enrolled: ",prek3, " @ $",prek3_rate,"/child/day\n",
+                                      "Pre-K + subsidy eligible 4-yos enrolled: ",prek4, " @ $",prek4_rate,"/child/day\n",
                                       "Pre-K only children enrolled: ",input$prekonly, " @ $0/day\n",
                                       "Tuition-only children enrolled: ",input$enrollfullpay, " @ $",input$tuitionrate*12, "/child/year\n",
-                                      "Pre-K pass-through amount: $",input$PassThrough_slider, "/yr\n",
+                                      "Additional Funds: $",input$extra_slider, "/yr\n",
                                       "\n",
                                       "ANNUAL EXPENSES:\n",
                                       "Pre-K lead teacher: $",leadrate, collapse=NULL,sep="","/hr | ",leadhours,"hrs/wk | ",leadweeks,"wks/yr\n",
@@ -539,7 +518,6 @@ server <- function(input, output, session) {
                                       "Food costs: $",input$foodcost,"/child/day\n",
                                       "Overhead: $",input$overhead1, "\n",
                                       "Benefits + fringe: ",input$fringerate, "% for 1 FTE"))
-            #gg_mod1 <- ggplot(df, aes(x = TRS_Level, y = yearly_rate)) + geom_point()
             ggsave("plot.pdf", gg_mod1, device = "pdf")
             gg_mod1
             
@@ -558,19 +536,20 @@ server <- function(input, output, session) {
                         (input$sumsubrate1 * input$sumsubhours1) +                           # Summer Substitute Wages (Rate*Hours)
                         input$supplies1 +                                                    # Supplies Costs (2500-5500)
                         input$overhead1 +                                                    # Overhead Costs (20K-40K)
-                        (enrollees * input$foodcost * 262) +                                 # Food Costs (Enrollment*DailyRate*262 days/year). daily rate = 0 if CACFP support, otherwise = 2
+                        (enrollees * input$foodcost * 205) +                                 # Food Costs (Enrollment*DailyRate*205 days/year). daily rate = 0 if CACFP support, otherwise = 2
                         (input$leadrate1 * input$leadhours1 * input$leadweeks1 * (input$fringerate/100) * districtpay)),  # Fringe Benefits for Teacher (= 0 if district pays)
                 
                 # REVENUE - student tuition (full-pay and subsidy, subsidy pay dependent on student age/enrollment status)
                 Revenue =
                     c(
-                        input$PassThrough_slider +                            # Pass Through Amount
+                        input$extra_slider +                            # Pass Through Amount
                             (input$enrollfullpay * input$tuitionrate * 12) +  # Full-Pay Student Revenue: NumberFullPayStudents*MonthlyTuition*12
-                            (subsidyonly3 * filtered_df()[2,5] * 262) +       # Subsidy only 3yo: NumberSubsidyOnly * PSFT daily rate * 262 days/yr
-                            (subsidyprek3 * filtered_df()[2,5] * 262) +       # Prek subsidy eligible 3yo: NumberPrekSubsidyEligible * PSFT daily rate * 262 days/yr
-                            (subsidyonly4 * filtered_df()[2,5] * 262) +       # Subsidy only 4yo: NumberSubsidyOnly * PSFT daily rate * 262 days/yr
-                            (subsidyprek4 * filtered_df()[1,5] * 205) +       # Prek subsidy eligible 4yo SCHOOL YEAR: NumberPrekSubsidyEligible * PSBT daily rate * 205 school year days
-                            (subsidyprek4 * filtered_df()[2,5] * 57)          # Prek subsidy eligible 4yo SUMMER: NumberPrekSubsidyEligible * PSFT daily rate * 57 summer days
+                            
+                            (subsidyonly3 * subsidyrate3 * 205) +             # Subsidy only 3yo: NumberSubsidyOnly * PSFT daily rate * 205 days/yr
+                            (prek3 * prek3_rate * 175) +                      # Prek subsidy eligible 3yo: NumberPrekSubsidyEligible * PSFT daily rate * 262 days/yr
+                            
+                            (subsidyonly4 * subsidyrate4 * 205) +             # Subsidy only 4yo: NumberSubsidyOnly * PSFT daily rate * 205 days/yr
+                            (prek4 * prek4_rate * 175)                        # Prek subsidy eligible 3yo: NumberPrekSubsidyEligible * PSFT daily rate * 262 days/yr
                     )
             )
             
@@ -594,19 +573,16 @@ server <- function(input, output, session) {
                                       "\n",
                                       "GENERAL INFO:\n",
                                       "Name of Center: ",input$centername, "\n",
-                                      "Workforce Board: ",input$Board_Selector, "\n",
-                                      "TRS Level: ",input$TRS_Selector, "\n",
                                       "\n",
                                       "ANNUAL REVENUES:\n",
-                                      "Classroom age group: ",input$class_age, "\n",
                                       "Total Number of Children Enrolled: " , enrollees , "\n",
-                                      "Subsidy-only 3-yos enrolled: ",subsidyonly3, " @ $",filtered_df()[2,5],"/child/day\n",
-                                      "Subsidy-only 4-yos enrolled: ",subsidyonly4, " @ $",filtered_df()[2,5],"/child/day\n",
-                                      "Pre-K + subsidy eligible 3-yos enrolled: ",subsidyprek3, " @ $",filtered_df()[2,5],"/child/day\n",
-                                      "Pre-K + subsidy eligible 4-yos enrolled: ",subsidyprek4, " @ $",filtered_df()[1,5],"/child/day (school year), $",filtered_df()[2,5],"/child/day (summer)\n",
+                                      "Subsidy-only 3-yos enrolled: ",subsidyonly3, " @ $",subsidyrate3,"/child/day\n",
+                                      "Subsidy-only 4-yos enrolled: ",subsidyonly4, " @ $",subsidyrate3,"/child/day\n",
+                                      #"Pre-K + subsidy eligible 3-yos enrolled: ",subsidyprek3, " @ $",subsidyrate3,"/child/day\n",
+                                      #"Pre-K + subsidy eligible 4-yos enrolled: ",subsidyprek4, " @ $",subsidyrate4,"/child/day (school year), $",subsidyrate3,"/child/day (summer)\n",
                                       "Pre-K only children enrolled: ",input$prekonly, " @ $0/day\n",
                                       "Tuition-only children enrolled: ",input$enrollfullpay, " @ $",input$tuitionrate*12, "/child/year\n",
-                                      "Pre-K pass-through amount: $",input$PassThrough_slider, "/yr\n",
+                                      "Pre-K pass-through amount: $",input$extra_slider, "/yr\n",
                                       "\n",
                                       "ANNUAL EXPENSES:\n",
                                       "Pre-K lead teacher: $",leadrate, collapse=NULL,sep="","/hr | ",leadhours,"hrs/wk | ",leadweeks,"wks/yr\n",
